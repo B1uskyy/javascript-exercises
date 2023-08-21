@@ -7,16 +7,24 @@ function getAge (birth, death) {
 
 const findTheOldest = function(peopleArray) {
 
-    newArr = [peopleArray[0]]
+    let oldest = peopleArray[0]; 
+    let oldestAge = getAge(peopleArray[0].yearOfBirth, peopleArray[0].yearOfDeath)
+    
 
     for (let i = 1; i < peopleArray.length; i++) {
-        if (getAge(peopleArray[i].yearOfDeath, peopleArray[i].yearOfBirth) > 0)
-        newArr = peopleArray[i]; 
+
+      if (getAge(peopleArray[i].yearOfBirth, peopleArray[i].yearOfDeath) > oldestAge) {
+        oldest = peopleArray[i]; 
+        oldestAge = getAge(peopleArray[i].yearOfBirth, peopleArray[i].yearOfDeath); 
+      }
+
+
     }
-    
-    return newArr; 
+
+    return oldest; 
 
 };
+
 
 
 
